@@ -1,5 +1,5 @@
 import express from 'express';
-import { CreateFlightService } from '../../../application';
+import { CreateFlightService } from '../../../application/service';
 
 export class CreateFlightController {
     constructor(
@@ -7,6 +7,7 @@ export class CreateFlightController {
     ) {}
 
     create = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+        console.log('create');
         await this.createFlightService.create();
         res.status(200).send({});
     }

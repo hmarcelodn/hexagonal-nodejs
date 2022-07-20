@@ -1,4 +1,4 @@
-import { CreateFlightUseCase } from './port/in';
+import { CreateFlightUseCase } from '../port/in';
 
 export class CreateFlightService implements CreateFlightUseCase {
     create(): Promise<void> {

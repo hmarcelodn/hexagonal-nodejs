@@ -1,3 +1,3 @@
 export interface FlightPort {
-    save(): Promise<any>;
+    create(): Promise<any>;
 }
