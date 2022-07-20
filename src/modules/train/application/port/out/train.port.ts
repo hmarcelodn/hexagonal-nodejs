@@ -1,3 +1,3 @@
 export interface TrainPort {
-    create(): Promise<any>;
+    createTrain(): Promise<void>;
 }

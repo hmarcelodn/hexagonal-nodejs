@@ -1,12 +1,14 @@
+import { Service } from 'typedi';
 import { BaseRoute } from './base.route';
 import { CreateTrainController, GetTrainController } from '../modules/train/adapters/in/web';
 
+@Service()
 export class TrainRoute extends BaseRoute {
-    public readonly path: string = '/flight';
+    public readonly path: string = '/train';
 
     constructor(
-        protected readonly createFlightController = new CreateTrainController(),
-        protected readonly getFlightController = new GetTrainController(),
+        private readonly createFlightController: CreateTrainController,
+        private readonly getFlightController: GetTrainController,
     ) {
         super();
         this.initializeRoutes();

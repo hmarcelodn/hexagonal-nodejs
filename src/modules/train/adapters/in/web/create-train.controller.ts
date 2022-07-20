@@ -1,14 +1,17 @@
 import express from 'express';
-import { CreateTrainService } from '../../../application/service';
+import { Service, Inject } from 'typedi';
+import { CreateTrainUseCase } from '../../../application/port/in';
 
+@Service()
 export class CreateTrainController {
     constructor(
-        private readonly createFlightService = new CreateTrainService(),
+        @Inject('create-train.usecase')
+        private readonly createTrainUseCase: CreateTrainUseCase,
     ) {}
 
     create = async (req: express.Request, res: express.Response, next: express.NextFunction) => {
         console.log('create');
-        await this.createFlightService.create();
+        await this.createTrainUseCase.create();
         res.status(200).send({});
     }
 }
