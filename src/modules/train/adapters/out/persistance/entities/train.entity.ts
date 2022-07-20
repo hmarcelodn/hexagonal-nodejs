@@ -1,12 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
     name: 'train'
 })
-export class TrainTypeOrmEntity {
+export class TrainEntity {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    name: string;
 }
