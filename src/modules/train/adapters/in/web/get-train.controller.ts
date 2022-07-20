@@ -1,9 +1,9 @@
 import express from 'express';
-import { GetFlightService } from '../../../application/service';
+import { GetTrainService } from '../../../application/service';
 
-export class GetFlightController {
+export class GetTrainController {
     constructor(
-        private readonly getFlightService = new GetFlightService(),
+        private readonly getFlightService = new GetTrainService(),
     ) {}
 
     get = (req: express.Request, res: express.Response, next: express.NextFunction) => {

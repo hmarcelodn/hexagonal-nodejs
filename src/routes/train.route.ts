@@ -1,12 +1,12 @@
 import { BaseRoute } from './base.route';
-import { CreateFlightController, GetFlightController } from '../modules/flights/adapters/in/web';
+import { CreateTrainController, GetTrainController } from '../modules/train/adapters/in/web';
 
-export class FlightRoute extends BaseRoute {
+export class TrainRoute extends BaseRoute {
     public readonly path: string = '/flight';
 
     constructor(
-        protected readonly createFlightController = new CreateFlightController(),
-        protected readonly getFlightController = new GetFlightController()
+        protected readonly createFlightController = new CreateTrainController(),
+        protected readonly getFlightController = new GetTrainController(),
     ) {
         super();
         this.initializeRoutes();

@@ -1,3 +1,3 @@
-export interface FlightPort {
+export interface TrainPort {
     create(): Promise<any>;
 }

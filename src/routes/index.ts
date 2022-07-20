@@ -1,2 +1,2 @@
 export * from './base.route';
-export * from './flights.route';
+export * from './train.route';

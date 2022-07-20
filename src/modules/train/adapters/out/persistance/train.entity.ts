@@ -1,9 +1,9 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
-    name: 'flight'
+    name: 'train'
 })
-export class FlightTypeOrmEntity {
+export class TrainTypeOrmEntity {
     @PrimaryGeneratedColumn()
     id: number | undefined;
 }
