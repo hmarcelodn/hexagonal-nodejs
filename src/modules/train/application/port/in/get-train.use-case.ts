@@ -1,3 +1,3 @@
 export interface GetTrainUseCase {
-    get(): Promise<any>;
+    getAll(): Promise<any[]>;
 }

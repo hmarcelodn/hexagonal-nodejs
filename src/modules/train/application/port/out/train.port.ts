@@ -1,3 +1,4 @@
 export interface TrainPort {
-    createTrain(): Promise<void>;
+    createTrain(train: any): Promise<any>;
+    getTrains(): Promise<any[]>;
 }
