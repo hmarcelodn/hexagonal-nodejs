@@ -1,17 +1,18 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class StationSeed1658501431139 implements MigrationInterface {
+export class ModuleSchemas1658528486066 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            insert into train.station("name") values ('Amsterdam'); 
-            insert into train.station("name") values ('Paris'); 
+            CREATE SCHEMA IF NOT EXISTS train;
+            CREATE SCHEMA IF NOT EXISTS timetable;
         `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`
-            delete from train.station;
+            DROP SCHEMA IF EXISTS train;
+            DROP SCHEMA IF EXISTS timetable;
         `);
     }
 

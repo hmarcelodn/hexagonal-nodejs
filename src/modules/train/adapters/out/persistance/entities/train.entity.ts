@@ -2,7 +2,8 @@ import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, Up
 import { StationEntity } from './station.entity';
 
 @Entity({
-    name: 'train'
+    name: 'train',
+    schema: 'train',
 })
 export class TrainEntity {
     @PrimaryGeneratedColumn()
