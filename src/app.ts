@@ -1,5 +1,5 @@
 import express from 'express';
-import { BaseRoute } from './routes';
+import { BaseRoute } from './modules/shared/routes';
 
 export class App {
     constructor(app: express.Application, routes: BaseRoute[]) {

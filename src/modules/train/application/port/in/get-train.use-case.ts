@@ -1,3 +1,5 @@
+import { Train } from '../../../domain';
+
 export interface GetTrainUseCase {
-    getAll(): Promise<any[]>;
+    getAll(): Promise<Train[]>;
 }

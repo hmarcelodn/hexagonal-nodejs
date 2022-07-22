@@ -1,6 +1,6 @@
-import "reflect-metadata"
-import { DataSource } from "typeorm"
-import { TrainTypeOrmEntity } from "./modules/train/adapters/out/persistance/entities/train.entity"
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
+import { TrainEntity } from '../train/adapters/out/persistance/entities';
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +11,7 @@ export const AppDataSource = new DataSource({
     database: "railway_dev",
     synchronize: true,
     logging: false,
-    entities: [TrainTypeOrmEntity],
+    entities: [TrainEntity],
     migrations: [],
     subscribers: [],
 })

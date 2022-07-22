@@ -1,12 +1,13 @@
+import { Train } from '../../domain';
 import { GetTrainUseCase } from '../port/in';
-import { TrainPort } from '../port/out';
+import { LoadTrainsPort } from '../port/out';
 
 export class GetTrainService implements GetTrainUseCase {
     constructor(
-        private readonly trainPort: TrainPort
+        private readonly loadTrainsPort: LoadTrainsPort,
     ) {}
     
-    getAll(): Promise<any[]> {
-        return this.trainPort.getTrains()
+    getAll(): Promise<Train[]> {
+        return this.loadTrainsPort.getTrains();
     }
 }
