@@ -1,4 +1,4 @@
-import { AppDataSource } from '../../../../shared/data/data-source';
+import { AppDataSource } from '../../../../shared/data/config/data-source';
 import { CreateTrainPort, LoadStationPort, LoadTrainsPort } from '../../../application/port/out';
 import { StationEntity, TrainEntity } from './entities';
 import { StationMapper, TrainMapper } from './mappers';
@@ -30,4 +30,14 @@ export class TrainPersistanceAdapter implements CreateTrainPort, LoadTrainsPort,
         const train = this.trainMapper.toEntity(trainModel);
         return this.trainMapper.toDomain(await this.trainRepository.save(train));
     }
+
+    getTrain = async (trainId: number): Promise<Train> => {
+        const train = await this.trainRepository.findOne({ 
+            where: { id: trainId }, 
+            relations: ['sourceStation', 'destinationStation'],
+        });
+
+        return this.trainMapper.toDomain(train!);
+    }
+
 }

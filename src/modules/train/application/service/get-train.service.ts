@@ -4,10 +4,10 @@ import { LoadTrainsPort } from '../port/out';
 
 export class GetTrainService implements GetTrainUseCase {
     constructor(
-        private readonly loadTrainsPort: LoadTrainsPort,
+        private readonly getTrainPort: LoadTrainsPort,
     ) {}
-    
-    getAll(): Promise<Train[]> {
-        return this.loadTrainsPort.getTrains();
+
+    get(trainId: number): Promise<Train> {
+        return this.getTrainPort.getTrain(trainId);
     }
 }

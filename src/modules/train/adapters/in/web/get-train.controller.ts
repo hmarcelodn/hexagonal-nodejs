@@ -1,13 +1,13 @@
 import express from 'express';
 import { Service, Inject } from 'typedi';
 import { BaseController } from '../../../../shared/controllers/base.controller';
-import { GetTrainUseCase } from '../../../application/port/in';
+import { GetTrainsUseCase } from '../../../application/port/in';
 
 @Service()
 export class GetTrainController extends BaseController {
     constructor(
         @Inject('get-train.usecase')
-        private readonly getTrainUseCase: GetTrainUseCase,
+        private readonly getTrainUseCase: GetTrainsUseCase,
     ) {
         super();
     }
