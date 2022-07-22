@@ -5,7 +5,6 @@ import { TrainMapper } from '../mapper';
 import { CreateTrainInputModel, CreateTrainUseCase } from '../port/in';
 import { CreateTrainPort, LoadStationPort } from '../port/out';
 
-@Service('createtrainservice')
 export class CreateTrainService implements CreateTrainUseCase {
     constructor(
         @Inject('create-train.port')
