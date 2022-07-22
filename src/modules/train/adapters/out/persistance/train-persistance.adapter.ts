@@ -1,4 +1,4 @@
-import { AppDataSource } from '../../../../shared/data-source';
+import { AppDataSource } from '../../../../shared/data/data-source';
 import { CreateTrainPort, LoadStationPort, LoadTrainsPort } from '../../../application/port/out';
 import { StationEntity, TrainEntity } from './entities';
 import { StationMapper, TrainMapper } from './mappers';

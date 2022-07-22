@@ -1,6 +1,6 @@
 import express from 'express';
 import { Service, Inject } from 'typedi';
-import { BaseController } from './base.controller';
+import { BaseController } from '../../../../shared/controllers/base.controller';
 import { CreateTrainUseCase } from '../../../application/port/in';
 
 @Service()

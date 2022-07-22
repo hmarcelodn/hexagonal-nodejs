@@ -3,7 +3,7 @@ import 'express-async-errors';
 import express from 'express';
 import { Container } from 'typedi';
 import { App } from './app';
-import { AppDataSource } from './modules/shared/data-source';
+import { AppDataSource } from './modules/shared/data/data-source';
 import { TrainRoute } from './modules/shared/routes';
 import { CreateTrainService, GetTrainService } from './modules/train/application/service';
 import { TrainPersistanceAdapter } from './modules/train/adapters/out/persistance';

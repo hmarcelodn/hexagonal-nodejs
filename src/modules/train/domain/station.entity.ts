@@ -1,13 +1,13 @@
 export class Station {
-    private _id: number;
-    private _name: string;
+    private id: number;
+    private name: string;
 
     constructor (
         name: string,
         id?: number,
     ) {
-        this._name = name;
-        this._id = id || 0;
+        this.name = name;
+        this.id = id || 0;
     }
 
     public static withId( 
@@ -18,5 +18,13 @@ export class Station {
             name,
             id,
         );
+    }
+
+    public get getId(): number {
+        return this.id;
+    }
+
+    public get getName(): string {
+        return this.name;
     }
 }

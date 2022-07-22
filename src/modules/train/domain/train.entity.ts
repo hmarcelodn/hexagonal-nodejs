@@ -1,11 +1,11 @@
 import { StationId } from '../domain';
 
 export class Train {
-    private _id: number;
-    private _name: string;
-    private _number: string;
-    private _sourceStationId: StationId;
-    private _destinationStationId: StationId;
+    private id: number;
+    private name: string;
+    private number: string;
+    private sourceStationId: StationId;
+    private destinationStationId: StationId;
 
     constructor (
         name: string,
@@ -14,31 +14,31 @@ export class Train {
         destinationStationId: number,
         id?: number,
     ) {
-        this._id = id || 0;
-        this._name = name;
-        this._number = number;
-        this._sourceStationId = new StationId(sourceStationId);
-        this._destinationStationId = new StationId(destinationStationId);
+        this.id = id || 0;
+        this.name = name;
+        this.number = number;
+        this.sourceStationId = new StationId(sourceStationId);
+        this.destinationStationId = new StationId(destinationStationId);
     }
 
-    get id(): number {
-        return this._id;
+    get getId(): number {
+        return this.id;
     }
 
-    get name(): string {
-        return this._name;
+    get getName(): string {
+        return this.name;
     }
 
-    get number(): string {
-        return this._number;
+    get getNumber(): string {
+        return this.number;
     }
 
-    get sourceStationId(): StationId {
-        return this._sourceStationId;
+    get getSourceStationId(): StationId {
+        return this.sourceStationId;
     }
 
-    get destinationStationId(): StationId {
-        return this._destinationStationId;
+    get getDestinationStationId(): StationId {
+        return this.destinationStationId;
     }
 
     public static withoutId(

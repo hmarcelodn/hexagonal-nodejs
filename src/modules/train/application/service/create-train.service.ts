@@ -1,4 +1,4 @@
-import { Inject, Service } from 'typedi';
+import { Inject } from 'typedi';
 import { InvalidRouteError, StationNotFoundError } from '../../../shared/error';
 import { Train } from '../../domain';
 import { TrainMapper } from '../mapper';
@@ -17,14 +17,14 @@ export class CreateTrainService implements CreateTrainUseCase {
     create = async (trainInputModel: CreateTrainInputModel): Promise<Train> => {
         const train = this.trainMapper.toDomain(trainInputModel);
 
-        const sourceStation = await this.loadStationPort.getStation(train.sourceStationId.id);
+        const sourceStation = await this.loadStationPort.getStation(train.getSourceStationId.id);
         if (!sourceStation) {
-            throw new StationNotFoundError(train.sourceStationId.id);
+            throw new StationNotFoundError(train.getSourceStationId.id);
         }
 
-        const destinationStation = await this.loadStationPort.getStation(train.destinationStationId.id);
+        const destinationStation = await this.loadStationPort.getStation(train.getDestinationStationId.id);
         if (!destinationStation) {
-            throw new StationNotFoundError(train.destinationStationId.id);
+            throw new StationNotFoundError(train.getDestinationStationId.id);
         }
 
         if (!train.isValidRoute()) {

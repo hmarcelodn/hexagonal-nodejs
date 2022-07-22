@@ -6,13 +6,11 @@ import { TrainEntity, StationEntity } from '../entities';
 export class TrainMapper {
     toEntity(train: Train): TrainEntity {
         const trainEntity = new TrainEntity();
-        trainEntity.name = train.name;
-        trainEntity.number = train.number;
-        trainEntity.sourceStation = { id: train.sourceStationId.id } as StationEntity;
-        trainEntity.destinationStation = { id: train.destinationStationId.id } as StationEntity;
-        trainEntity.id = train.id;
-
-        console.log(trainEntity);
+        trainEntity.name = train.getName;
+        trainEntity.number = train.getNumber;
+        trainEntity.sourceStation = { id: train.getSourceStationId.id } as StationEntity;
+        trainEntity.destinationStation = { id: train.getDestinationStationId.id } as StationEntity;
+        trainEntity.id = train.getId;
 
         return trainEntity;
     }
