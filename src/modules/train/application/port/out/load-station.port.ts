@@ -1,5 +1,5 @@
 import { Station } from '../../../domain/station.entity';
 
 export interface LoadStationPort {
-    getStation(stationId: number): Promise<Station>;
+    getStation(stationId: number): Promise<Station | null>;
 }

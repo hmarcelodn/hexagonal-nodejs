@@ -1,17 +1,17 @@
-import 'reflect-metadata';
+// import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { TrainEntity } from '../train/adapters/out/persistance/entities';
+import { StationEntity, TrainEntity } from '../train/adapters/out/persistance/entities';
 
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
     port: 5432,
     username: "postgres",
-    password: "Pass2020!",
+    password: "postgres",
     database: "railway_dev",
     synchronize: true,
     logging: false,
-    entities: [TrainEntity],
+    entities: [TrainEntity, StationEntity],
     migrations: [],
     subscribers: [],
 })

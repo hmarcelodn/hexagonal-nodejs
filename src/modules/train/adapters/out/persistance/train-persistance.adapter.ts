@@ -3,7 +3,9 @@ import { CreateTrainPort, LoadStationPort, LoadTrainsPort } from '../../../appli
 import { StationEntity, TrainEntity } from './entities';
 import { StationMapper, TrainMapper } from './mappers';
 import { Station, Train } from '../../../domain';
+import { Service } from 'typedi';
 
+@Service()
 export class TrainPersistanceAdapter implements CreateTrainPort, LoadTrainsPort, LoadStationPort {
     constructor(
         private readonly trainRepository = AppDataSource.getRepository(TrainEntity),
@@ -12,13 +14,15 @@ export class TrainPersistanceAdapter implements CreateTrainPort, LoadTrainsPort,
         private readonly stationMapper: StationMapper,
     ) {}
 
-    getStation = async (stationId: number): Promise<Station> => {
+    getStation = async (stationId: number): Promise<Station | null> => {
         const station = await this.stationRepository.findOne({ where: { id: stationId } });
-        return this.stationMapper.toDomain(station!);
+        return station ? this.stationMapper.toDomain(station): station;
     }
 
     getTrains = async (): Promise<Train[]> => {
-        const trains = await this.trainRepository.find();
+        const trains = await this.trainRepository.find({
+            relations: ['sourceStation', 'destinationStation'],
+        });
         return trains.map(t => this.trainMapper.toDomain(t));
     }
 

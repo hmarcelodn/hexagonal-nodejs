@@ -70,4 +70,8 @@ export class Train {
             id,
         );
     }
+
+    public isValidRoute(): boolean {
+        return this.sourceStationId.id !== this.destinationStationId.id;
+    }
 }

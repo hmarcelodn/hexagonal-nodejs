@@ -12,6 +12,8 @@ export class TrainMapper {
         trainEntity.destinationStation = { id: train.destinationStationId.id } as StationEntity;
         trainEntity.id = train.id;
 
+        console.log(trainEntity);
+
         return trainEntity;
     }
 
